@@ -2,6 +2,10 @@
 
 Interactive Cares Edu is an Multi sectional educational application which provides various subject to inroll.
 
+Code architecture : MVVM
+State Management : GetX
+User Authentication : FireBase/Firestore
+
 To run this Project you just have to :
 
 * Clone the Repository into local machine
@@ -13,9 +17,12 @@ That's it .
 # Screen Shots
 
 <div style="display: flex;">
-  <img src="https://github.com/Solaymankhan/InteractiveCareEdu/assets/67571737/063470ce-1a82-4e59-883e-d304a97e01f4.jpg" width="200" height="400" style="margin-right: 20px;" />
-  <img src="https://github.com/Solaymankhan/InteractiveCareEdu/assets/67571737/7e23fdfa-df09-4f25-b2b8-80c84ecfcfc6.jpg" width="200" height="400" style="margin-right: 20px;" />
-  <img src="https://github.com/Solaymankhan/InteractiveCareEdu/assets/67571737/f41b41e3-c7cc-46bf-b5c2-a03c6c82573c.jpg" width="200" height="400" style="margin-right: 20px;" />
-  <img src="https://github.com/Solaymankhan/InteractiveCareEdu/assets/67571737/8d76019f-99b4-410a-a7d6-f191f6e8c0bd.jpg" width="200" height="400" />
+  <img src="https://user-images.githubusercontent.com/67571737/c2449b6b-0046-4a16-8f1d-464bfd532d86.jpg" width="200" height="400" style="margin-right: 20px;" />
+  <img src="https://user-images.githubusercontent.com/67571737/86021423-a415-489e-94d8-8a44a5409d20.jpg" width="200" height="400" style="margin-right: 20px;" />
+  <img src="https://user-images.githubusercontent.com/67571737/eeddafed-937e-4092-a94a-44c73033162a.jpg" width="200" height="400" style="margin-right: 20px;" />
+    <img src="https://user-images.githubusercontent.com/67571737/86a29329-c6c3-4da4-98d0-25729a9b123e.jpg" width="200" height="400"/>
 </div>
 
+# APK File : 
+
+<p>Click <a href="https://drive.google.com/file/d/10STOuVBNzZQYww495dZZZIutW6zZwnlO/view?usp=sharing" target="_blank">HERE</a> to Download the apk</p>
