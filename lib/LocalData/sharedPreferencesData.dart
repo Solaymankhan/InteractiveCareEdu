@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -5,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class sharedPreferencesData {
   List<String> bookmarksTime = [];
   List<String> bookmarksDescription = [];
+  RxInt bookmarkLength=0.obs;
 
   void saveBookmark(time,description) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -29,5 +31,6 @@ class sharedPreferencesData {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bookmarksTime = prefs.getStringList('bookmarksTime') ?? [];
     bookmarksDescription = prefs.getStringList('bookmarksDescription') ?? [];
+    bookmarkLength.value=bookmarksTime.length;
   }
 }

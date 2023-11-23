@@ -1,6 +1,9 @@
 
 
 const logo_img='assets/images/interactive_care_logo_img.jpg';
+const profile_avatar_img='assets/images/profile_circle_avatar.png';
+const recommended_img='assets/images/recommended.png';
+const daily_activity_img='assets/images/daily_activity.png';
 
 
 //course Images
