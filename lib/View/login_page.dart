@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:crypto/crypto.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:interactive_cares_edu/Utils/buttons/colorButton.dart';
+import 'package:interactive_cares_edu/Utils/buttons/txtButton.dart';
 import 'package:interactive_cares_edu/Utils/constants/strings.dart';
-
-import 'package:interactive_cares_edu/Utils/functions/screenSize.dart';
 import 'package:get/get.dart';
 import 'package:interactive_cares_edu/Networks/services/firebaseEmailAuth.dart';
 import 'package:interactive_cares_edu/Utils/constants/colors.dart';
 import 'package:interactive_cares_edu/Utils/constants/image_paths.dart';
 import 'package:interactive_cares_edu/Utils/functions/hexColor.dart';
 import 'package:interactive_cares_edu/Utils/routes/routs.dart';
-import 'package:interactive_cares_edu/Utils/widgets/colorButton.dart';
 import 'package:interactive_cares_edu/Utils/widgets/logo_image.dart';
-import 'package:interactive_cares_edu/Utils/widgets/textAlignment.dart';
 import 'package:interactive_cares_edu/Utils/widgets/textField.dart';
-import 'package:interactive_cares_edu/Utils/widgets/txtButton.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class login_page extends StatelessWidget {
@@ -24,16 +19,18 @@ class login_page extends StatelessWidget {
 
   String email = '';
   String password = '';
-  String fullname = '';
-  bool login = false;
 
   @override
   Widget build(BuildContext context) {
+    double h=MediaQuery.sizeOf(context).height;
+    double w=MediaQuery.sizeOf(context).width;
     return Scaffold(
         body: SafeArea(
       child: SingleChildScrollView(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          100.heightBox,
           logo_image(img: logo_img),
           10.heightBox,
           Text(
@@ -125,8 +122,9 @@ class login_page extends StatelessWidget {
                   }),
             ],
           ),
+          100.heightBox
         ],
-      ).centered().marginOnly(left: 15, right: 15)),
+      ).marginOnly(left: 15, right: 15)),
     ));
   }
 }

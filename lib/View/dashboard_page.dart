@@ -4,18 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:interactive_cares_edu/Networks/fetched_data.dart';
 import 'package:interactive_cares_edu/Networks/services/firebaseEmailAuth.dart';
+import 'package:interactive_cares_edu/Utils/buttons/circleIconButton.dart';
 import 'package:interactive_cares_edu/Utils/constants/image_paths.dart';
 import 'package:interactive_cares_edu/Utils/constants/strings.dart';
 import 'package:interactive_cares_edu/Utils/functions/hexColor.dart';
 import 'package:interactive_cares_edu/Utils/routes/routs.dart';
 import 'package:interactive_cares_edu/Utils/widgets/appBarText.dart';
-import 'package:interactive_cares_edu/Utils/widgets/circleIconButton.dart';
-import 'package:interactive_cares_edu/Utils/widgets/colorButton.dart';
 import 'package:interactive_cares_edu/Utils/widgets/coursesTile.dart';
 import 'package:interactive_cares_edu/Utils/widgets/expandedText.dart';
 import 'package:velocity_x/velocity_x.dart';
-
-import '../../Utils/constants/colors.dart';
 
 class dashboard_page extends StatelessWidget {
   dashboard_page({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:interactive_cares_edu/Utils/widgets/colorButton.dart';
+import 'package:interactive_cares_edu/Utils/buttons/colorButton.dart';
 import 'package:interactive_cares_edu/Utils/widgets/expandedText.dart';
 import 'package:velocity_x/velocity_x.dart';
 

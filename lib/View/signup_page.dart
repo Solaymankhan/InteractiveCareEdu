@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:interactive_cares_edu/Utils/buttons/colorButton.dart';
+import 'package:interactive_cares_edu/Utils/buttons/txtButton.dart';
 import 'package:interactive_cares_edu/Utils/constants/colors.dart';
 import 'package:interactive_cares_edu/Utils/constants/image_paths.dart';
 import 'package:interactive_cares_edu/Utils/constants/strings.dart';
 import 'package:interactive_cares_edu/Utils/functions/hexColor.dart';
 import 'package:interactive_cares_edu/Utils/routes/routs.dart';
-import 'package:interactive_cares_edu/Utils/widgets/colorButton.dart';
 import 'package:interactive_cares_edu/Utils/widgets/textField.dart';
-import 'package:interactive_cares_edu/Utils/widgets/txtButton.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:interactive_cares_edu/Networks/services/firebaseEmailAuth.dart';
 
@@ -25,6 +25,7 @@ class signup_page extends StatelessWidget {
       child: SingleChildScrollView(
           child: Column(
         children: [
+          100.heightBox,
           Image(height: 110, width: 110, image: AssetImage(logo_img))
               .box
               .roundedFull
@@ -122,6 +123,7 @@ class signup_page extends StatelessWidget {
                   }),
             ],
           ),
+          100.heightBox,
         ],
       ).marginOnly(left: 15, right: 15)),
     ));

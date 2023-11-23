@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:interactive_cares_edu/View/CourseDetails/courseDetails_page.dart';
-import 'package:interactive_cares_edu/View/Dashboard/dashboard_page.dart';
-import 'package:interactive_cares_edu/View/Login/login_page.dart';
-import 'package:interactive_cares_edu/View/Signup/signup_page.dart';
+import 'package:interactive_cares_edu/View/courseDetails_page.dart';
+import 'package:interactive_cares_edu/View/dashboard_page.dart';
+import 'package:interactive_cares_edu/View/login_page.dart';
+import 'package:interactive_cares_edu/View/signup_page.dart';
 
 class routes{
   static String login="/";

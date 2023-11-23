@@ -13,7 +13,8 @@ import '../../LocalData/sharedPreferencesData.dart';
 class bookMartAlertDialog extends StatelessWidget {
   bookMartAlertDialog({Key? key,required this.time}) : super(key: key);
   String time;
-  sharedPreferencesData sharedpreferencesdata=new sharedPreferencesData();
+
+  final sharedPreferencesData sharedpreferencesdata = Get.find();
   final GlobalKey<FormState> note_form_key=GlobalKey<FormState>();
   TextEditingController _descriptionTextController = TextEditingController();
 
@@ -22,7 +23,7 @@ class bookMartAlertDialog extends StatelessWidget {
     return Form(
       key: note_form_key,
       child: AlertDialog(
-        title: Text('Add Bookmark',style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(add_bookmarks_txt,style: TextStyle(fontWeight: FontWeight.bold)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -30,7 +31,7 @@ class bookMartAlertDialog extends StatelessWidget {
               style:
               TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
             ).objectCenterLeft(),
-            5.heightBox,
+            10.heightBox,
             SizedBox(
               child: TextFormField(
                   controller: _descriptionTextController,
@@ -38,7 +39,7 @@ class bookMartAlertDialog extends StatelessWidget {
                   minLines: 1,
                   maxLength: 500,
                   decoration: InputDecoration(
-                    labelText: 'Description',
+                    labelText: description_txt,
                     contentPadding: EdgeInsets.all(8),
                     focusedBorder: OutlineInputBorder( // Add this block
                       borderRadius: BorderRadius.circular(2),
@@ -59,7 +60,7 @@ class bookMartAlertDialog extends StatelessWidget {
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Description Required";
+                      return description_required_txt;
                     }
                     return null;
                   }

@@ -7,7 +7,7 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class courseDetailsController extends GetxController{
   late YoutubePlayerController yutubeController;
-  sharedPreferencesData sharedpreferencesdata = new sharedPreferencesData();
+  final sharedpreferencesdata = Get.put(sharedPreferencesData());
   RxInt presentModuleIndex = 0.obs;
 
   @override

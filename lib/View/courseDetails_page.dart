@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:interactive_cares_edu/Networks/modules.dart';
 import 'package:interactive_cares_edu/Utils/AlertDialogs/bookMartAlertDialog.dart';
+import 'package:interactive_cares_edu/Utils/buttons/circleIconButton.dart';
 import 'package:interactive_cares_edu/Utils/constants/colors.dart';
 import 'package:interactive_cares_edu/Utils/constants/strings.dart';
 import 'package:interactive_cares_edu/Utils/functions/hexColor.dart';
 import 'package:interactive_cares_edu/Utils/widgets/appBarText.dart';
-import 'package:interactive_cares_edu/Utils/widgets/circleIconButton.dart';
+import 'package:interactive_cares_edu/Utils/widgets/bookmarkTile.dart';
 import 'package:interactive_cares_edu/ViewModels/controllers/courseDetailsController.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -34,8 +35,7 @@ class courseDetails_page extends StatelessWidget {
             ],
           ),
         ),
-        body: Obx(
-          () => Column(
+        body: Column(
             children: [
               YoutubePlayer(
                 controller: coursedetailscontroller.yutubeController,
@@ -75,75 +75,45 @@ class courseDetails_page extends StatelessWidget {
                     ],
                   ),
                   10.heightBox,
-                  ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: coursedetailscontroller
-                        .sharedpreferencesdata.bookmarksTime.length,
-                    itemBuilder: (context, index) {
-                      return Row(
-                        children: [
-                          SizedBox(width: 5),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  '${coursedetailscontroller.sharedpreferencesdata.bookmarksTime[index]} sec',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                Text(
-                                  coursedetailscontroller.sharedpreferencesdata
-                                      .bookmarksDescription[index],
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(fontSize: 12),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(width: 5),
-                          Icon(CupertinoIcons.multiply, size: 18).onTap(() {
-                            coursedetailscontroller.sharedpreferencesdata
-                                .deleteABookmark(index);
-                          })
-                        ],
-                      )
-                          .centered()
-                          .box
-                          .width(250)
-                          .color(Vx.gray200)
-                          .rounded
-                          .padding(EdgeInsets.only(left: 5, right: 5))
-                          .margin(EdgeInsets.only(left: 2, right: 2))
-                          .make();
-                    },
-                  )
-                      .box
-                      .height(coursedetailscontroller
-                                  .sharedpreferencesdata.bookmarkLength.value ==
-                              0
-                          ? 0
-                          : 50)
-                      .make(),
+                  Obx(()=> ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: coursedetailscontroller
+                          .sharedpreferencesdata.bookmarksTime.length,
+                      itemBuilder: (context, index) {
+                        return bookmarkTile(
+                            time: coursedetailscontroller
+                                .sharedpreferencesdata.bookmarksTime[index],
+                            description: coursedetailscontroller
+                                .sharedpreferencesdata
+                                .bookmarksDescription[index],
+                            onTap: (() {
+                              coursedetailscontroller.sharedpreferencesdata
+                                  .deleteABookmark(index);
+                            }));
+                      },
+                    )
+                        .box
+                        .height(coursedetailscontroller
+                                    .sharedpreferencesdata.bookmarkLength.value ==
+                                0
+                            ? 0
+                            : 50)
+                        .make(),
+                  ),
                   5.heightBox,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Course Moduls",
+                        course_moduls_txt,
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w500),
                       ),
                       Row(
                         children: [
-                          Material(
-                            borderRadius: BorderRadius.circular(50),
-                            child: InkWell(
+                          circleIconButton(
+                              icon: CupertinoIcons.back,
+                              bgColor: Colors.transparent,
                               onTap: () {
                                 coursedetailscontroller
                                     .presentModuleIndex.value = 0 >
@@ -158,18 +128,11 @@ class courseDetails_page extends StatelessWidget {
                                     int.parse(modules[coursedetailscontroller
                                             .presentModuleIndex.value]["time"]
                                         .toString()));
-                              },
-                              borderRadius: BorderRadius.circular(50),
-                              child: Ink(
-                                  height: 35,
-                                  width: 35,
-                                  child: Icon(CupertinoIcons.back)),
-                            ),
-                          ),
+                              }),
                           SizedBox(width: 10),
-                          Material(
-                            borderRadius: BorderRadius.circular(50),
-                            child: InkWell(
+                          circleIconButton(
+                              icon: CupertinoIcons.forward,
+                              bgColor: Colors.transparent,
                               onTap: () {
                                 coursedetailscontroller.presentModuleIndex
                                     .value = modules.length - 1 <
@@ -185,14 +148,7 @@ class courseDetails_page extends StatelessWidget {
                                     int.parse(modules[coursedetailscontroller
                                             .presentModuleIndex.value]["time"]
                                         .toString()));
-                              },
-                              borderRadius: BorderRadius.circular(50),
-                              child: Ink(
-                                  height: 35,
-                                  width: 35,
-                                  child: Icon(CupertinoIcons.forward)),
-                            ),
-                          ),
+                              })
                         ],
                       )
                     ],
@@ -203,39 +159,41 @@ class courseDetails_page extends StatelessWidget {
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: modules.length,
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: Text((index + 1).toString()),
-                        title: Text(
-                          modules[index]["time"].toString() +
-                              " sec : " +
-                              modules[index]["title"].toString(),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w500),
-                        ),
-                        subtitle: Text(
-                          modules[index]["description"].toString(),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      )
-                          .box
-                          .color(coursedetailscontroller
-                                      .presentModuleIndex.value ==
-                                  index
-                              ? Vx.gray300
-                              : Vx.gray100)
-                          .customRounded(BorderRadius.all(Radius.circular(2)))
-                          .margin(EdgeInsets.only(top: 2, bottom: 2))
-                          .make();
+                      return Obx(
+                          ()=> ListTile(
+                          leading: Text((index + 1).toString()),
+                          title: Text(
+                            modules[index]["time"].toString() +
+                                " sec : " +
+                                modules[index]["title"].toString(),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w500),
+                          ),
+                          subtitle: Text(
+                            modules[index]["description"].toString(),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        )
+                            .box
+                            .color(coursedetailscontroller
+                                        .presentModuleIndex.value ==
+                                    index
+                                ? Vx.gray300
+                                : Vx.gray100)
+                            .customRounded(BorderRadius.all(Radius.circular(2)))
+                            .margin(EdgeInsets.only(top: 2, bottom: 2))
+                            .make(),
+                      );
                     },
                   )
                 ]).marginOnly(left: 15, right: 15),
               ))
             ],
           ),
-        ));
+        );
   }
 }
