@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "428966248619",
+    "project_id": "interactiveedu-37c87",
+    "storage_bucket": "interactiveedu-37c87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428966248619:android:458ff4e5b450efb34f77ee",
+        "android_client_info": {
+          "package_name": "com.example.interactive_cares_edu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnZeC-LXUDKObrgIM73o5AcRgzmU1k_2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
