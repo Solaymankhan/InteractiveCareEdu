@@ -22,8 +22,6 @@ class login_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double h=MediaQuery.sizeOf(context).height;
-    double w=MediaQuery.sizeOf(context).width;
     return Scaffold(
         body: SafeArea(
       child: SingleChildScrollView(
